@@ -104,7 +104,7 @@ async def add_ip_to_db(message: types.Message):
                 await db_table_val(
                     user_id=message.from_user.id,
                     username=message.from_user.username,
-                    user_ip=''.join(message.text.split()[1]),
+                    user_ip=''.join(message.text.replace('"', '').split()[1]),
                     description_ip=' '.join(message.text.split()[2:]),
                     time_check=now_time_sec,
                     light_status=0
@@ -116,7 +116,7 @@ async def add_ip_to_db(message: types.Message):
                 await db_table_val(
                     user_id=message.from_user.id,
                     username=message.from_user.username,
-                    user_ip=''.join(message.text.split()[1]),
+                    user_ip=''.join(message.text.replace('"', '').split()[1]),
                     description_ip=' '.join(message.text.split()[2:]),
                     time_check=now_time_sec,
                     light_status=1
